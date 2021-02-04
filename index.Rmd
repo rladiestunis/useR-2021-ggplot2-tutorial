@@ -53,7 +53,7 @@ class: inverse, center, middle
 &nbsp;&nbsp;&nbsp; **<code><font color='#88398a'>Data Scientist</font></code>**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<code><font color='#88398a'>Data Scientist</font></code>**
 
-<img src='figs/kaouthar.png' width='220px'/>
+<img src='figs/kaouthar.PNG' width='220px'/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src='figs/amir.jpg' width='180px'/>
 
