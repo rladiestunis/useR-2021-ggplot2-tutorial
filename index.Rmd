@@ -28,7 +28,7 @@ theme_set(theme_roboto())
 
 layout: true
 
-<div class='my-footer'><span>https://github.com/rladiestunis</span></div> 
+<div class='my-footer'><span>https://rladiestunis.github.io/useR-2021-ggplot2-tutorial/</span></div> 
 
 ---
 
