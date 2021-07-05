@@ -1,6 +1,6 @@
 ---
 title: 'Data visualization using ggplot2 and its extensions'
-subtitle: 'R-Ladies Tunis| useR!2021 Conference | 5 July 2021'
+subtitle: 'R-Ladies Tunis| useR!2021 Conference |7 July 2021'
 author: 'R-Ladies Tunis'
 output:
   xaringan::moon_reader:
@@ -204,7 +204,9 @@ install.packages(c('peopleanalyticsdata',
                    'dplyr',
                    'ggprism',
                    'GGally',
-                   'magick'))
+                   'magick',
+                   'patchwork',
+                   'ggstatsplot'))
 ```
 
 ---
@@ -240,11 +242,17 @@ print(dfSummary(sociological_data, valid.col = FALSE, graph.magnif = 0.75), max.
 
 ## Boxplot
 
-> A **boxplot** aims to study the distribution. It can also show the distribution within multiple groups, along with the median, range, and outliers. 
+- A **boxplot** aims to study the distribution. It can also show the distribution within multiple groups, along with the median, range, and outliers. 
 
-> The dark line inside the box represents the median. The top of box is 75% percentile and bottom of box is 25% percentile.
+--
 
-> The end points of the lines (a.k.a whiskers) is at a distance of 1.5*IQR, where IQR or Inter Quartile Range is the distance between 25th and 75th percentiles. The points outside the whiskers are marked as dots and are normally considered as extreme points.
+- The dark line inside the box represents the median. The top of box is 75% percentile and bottom of box is 25% percentile.
+
+--
+
+- The end points of the lines (a.k.a whiskers) is at a distance of 1.5*IQR, where IQR or Inter Quartile Range is the distance between 25th and 75th percentiles. The points outside the whiskers are marked as dots and are normally considered as extreme points.
+
+--
 
 ### **`geom_boxplot()`**
 
@@ -405,6 +413,44 @@ ggplot(data = sociological_data) +
 
 ---
 
+## One-variable visualization: Boxplot - How to add statistical details
+
+- To add statistical details to out boxplot, we will use **ggstatsplot** is an extension of ggplot2 package for creating graphics with details from statistical tests included in the information-rich plots themselves. 
+
+--
+
+- In a typical exploratory data analysis workflow, data visualization and statistical modeling are two different phases: visualization informs modeling, and modeling in its turn can suggest a different visualization method, and so on and so forth. 
+
+--
+
+- The central idea of ggstatsplot is simple: combine these two phases into one in the form of graphics with statistical details, which makes data exploration simpler and faster.
+
+---
+
+## One-variable visualization: Boxplot - How to add statistical details
+
+This function creates either a violin plot, a box plot, or a mix of two for between-group or between-condition comparisons with results from statistical tests in the subtitle.
+
+.left-code[
+```{r first-plot31, eval=FALSE}
+library(ggstatsplot)
+ggbetweenstats(
+  data = sociological_data,
+  x = gender,
+  y = annual_income_ppp,
+  title = "Annual income by gender"
+) #<<
+```
+]
+
+.right-plot[
+```{r first-plot31-out, ref.label='first-plot31', echo=FALSE}
+```
+]
+
+
+
+---
 ## Barplot
 
 > A **barplot** displays the relationship between a numeric and a categorical variable. 
@@ -1032,6 +1078,42 @@ ggplot(data = sociological_data) +
 
 ---
 
+## Graph appearance enhancement : making animation
+
+.left-code[
+```{r first-plot33, eval=FALSE}
+library(gganimate) #<<
+
+p <- ggplot(data = sociological_data) +
+     aes(x = annual_income_ppp, 
+        y = average_wk_hrs) +
+     geom_point(aes(color = factor(family_size))) +
+     xlab(label = 'Indivdual annual income (PPP adjusted USD)') + 
+     ylab(label = 'Average number of hours per week') + 
+     scale_color_manual(name = 'Family size',
+                     values = c('#1B9E77', '#D95F02',
+                                '#7570B3', '#E7298A',
+                                '#66A61E', '#E6AB02',
+                                '#A6761D', '#666666',
+                                '#4267B2')) +
+    theme_prism(base_size = 12) #<<
+anim <- p + 
+  transition_states(family_size, #<<
+                    transition_length = 2, #<<
+                    state_length = 1) #<<
+
+anim #<<
+
+```
+]
+
+.right-plot[
+```{r first-plot33-out, ref.label='first-plot33', echo=FALSE}
+```
+]
+
+---
+
 ## How to make your plot looks professional
 
 .left-code[
@@ -1098,7 +1180,63 @@ grid::grid.raster(image_read('figs/RStudio-Logo.png'), #<<
 ]
 
 ---
+## How to lay out multiple plots
 
+- We will use **patchwork** package an extension of **ggplot2** that combine two or more graphs together.
+
+--
+
+- The + operator simply combines plots.
+
+--
+
+- The | will place plots next to each other.
+
+--
+
+- The / will place them on top of each other.
+
+--
+
+---
+
+## How to lay out multiple plots
+
+.left-code[
+```{r first-plot30, eval=FALSE}
+library(patchwork) #<<
+p1 <- ggplot(data = sociological_data) +
+      aes(x = annual_income_ppp, 
+      y = education_months) +
+      geom_point(shape = 18, 
+             color = '#88398a') +
+      xlab(label = 'Annual income in USD') + 
+      ylab(label = 'Education (months)')
+p2 <- ggplot(data = sociological_data) + 
+      aes(x = gender, 
+          y = average_wk_hrs, 
+          fill = gender) +
+      geom_bar(stat='identity', binwidth = 0.5) +
+      scale_x_discrete(labels = c('F' = 'Female','M' = 'Male')) +
+      scale_fill_manual(name = 'Gender',  
+                    labels = c('Female','Male'), 
+                    values = c('#FF1493','#4169E1')) +   
+      ggtitle(label = 'Average of working hours by gender') +
+      xlab(label = 'Gender') +
+      ylab(label = 'Average working hours') + 
+      scale_y_continuous(expand = c(0,0)) + #<<
+      theme_bw() #<<
+p1 / p2
+#<<
+```
+]
+
+.right-plot[
+```{r first-plot30-out, ref.label='first-plot30', echo=FALSE}
+```
+]
+
+---
 ## Graph export options 
 
 ```{r eval=FALSE}
