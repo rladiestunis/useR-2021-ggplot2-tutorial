@@ -38,32 +38,32 @@ class: inverse, center, middle
 
 <img src='figs/ggplot2.png' width='150px'/>
 
-.large[R-Ladies Tunis | <code><font color='#2166ac'>useR! 2021 Conference</font></code> <img src='figs/useR_small_logo.jpg' width='50px'/> | 5 July 2021]
+.large[R-Ladies Tunis | <code><font color='#2166ac'>useR! 2021 Conference</font></code> <img src='figs/useR_small_logo.jpg' width='50px'/> | 7 July 2021]
 
 ---
 
 .pull-left1[
 &nbsp;&nbsp;&nbsp;&nbsp;<img src='figs/haifa.png' width='180px'/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src='figs/mouna.jpg' width='130px'/>
+<img src='figs/amir.jpg' width='180px'/>
 
 **<code><font color='#88398a'>Haifa Ben Messaoud</font></code>**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-**<code><font color='#88398a'>Mouna Belaid</font></code>**
+**<code><font color='#88398a'>Amir Souissi</font></code>**
 
 &nbsp;&nbsp;&nbsp; **<code><font color='#88398a'>Data Scientist</font></code>**
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<code><font color='#88398a'>Data Scientist</font></code>**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<code><font color='#88398a'>Consultant Data Scientist</font></code>**
 
 <img src='figs/kaouthar.PNG' width='220px'/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src='figs/amir.jpg' width='180px'/>
+<img src='figs/mouna.jpg' width='130px'/>
 
 &nbsp;&nbsp;&nbsp;&nbsp;
 **<code><font color='#88398a'>Kaouthar Driss</font></code>**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-**<code><font color='#88398a'>Amir Souissi</font></code>**
+**<code><font color='#88398a'>Mouna Belaid</font></code>**
 
 **<code><font color='#88398a'>Data Science Engineer</font></code>**
-&nbsp;&nbsp;&nbsp;&nbsp;**<code><font color='#88398a'>Consultant Data Scientist</font></code>**
+&nbsp;&nbsp;&nbsp;&nbsp;**<code><font color='#88398a'>Data Scientist</font></code>**
 
 ]
 
@@ -111,6 +111,8 @@ class: inverse, center, middle
   
 5) Graph appearance enhancement
 
+  + How to add animation to a graph
+
   + How to make your graphs look professional 
 
   + Adding RStudio logo 
@@ -134,7 +136,7 @@ class: inverse, center, middle
 
 ## Learning goals `r emo::ji('rocket')`
 
-- Get a clear understanding of the ggplot2 R package and some of its extensions: ggprism, and GGally
+- Get a clear understanding of the ggplot2 R package and some of its extensions: ggprism, ggstatsplot, gganimate, GGally and patchwork
 
 --
 
@@ -206,7 +208,8 @@ install.packages(c('peopleanalyticsdata',
                    'GGally',
                    'magick',
                    'patchwork',
-                   'ggstatsplot'))
+                   'ggstatsplot',
+                   'gganimate'))
 ```
 
 ---
@@ -1125,7 +1128,7 @@ ggplot(data = sociological_data) +
         y = education_months,
         color = job_type) +
   geom_point() +
-  ggtitle('Educatin and income by job type') +
+  ggtitle('Education and income by job type') +
   xlab(label = 'Annual income in USD') + 
   ylab(label = 'Total months spend in education') +
   labs(caption = 'Source : Sociological survey data') +
@@ -1156,7 +1159,7 @@ ggplot(data = sociological_data) +
         y = education_months,
         color = job_type) +
   geom_point() +
-  ggtitle('Educatin and income by job type') +
+  ggtitle('Education and income by job type') +
   xlab(label = 'Annual income in USD') + 
   ylab(label = 'Total months spend in education') +
   labs(caption = 'Source : Sociological survey data') +
@@ -1227,7 +1230,7 @@ p2 <- ggplot(data = sociological_data) +
       scale_y_continuous(expand = c(0,0)) + #<<
       theme_bw() #<<
 p1 / p2
-#<<
+
 ```
 ]
 
