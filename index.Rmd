@@ -44,23 +44,23 @@ class: inverse, center, middle
 
 .pull-left1[
 &nbsp;&nbsp;&nbsp;&nbsp;<img src='figs/haifa.png' width='180px'/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src='figs/amir.jpg' width='180px'/>
+<img src='figs/mouna.jpg' width='180px'/>
 
 **<code><font color='#88398a'>Haifa Ben Messaoud</font></code>**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-**<code><font color='#88398a'>Amir Souissi</font></code>**
+**<code><font color='#88398a'>Mouna Belaid</font></code>**
 
 &nbsp;&nbsp;&nbsp; **<code><font color='#88398a'>Data Scientist</font></code>**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<code><font color='#88398a'>Consultant Data Scientist</font></code>**
 
 <img src='figs/kaouthar.PNG' width='220px'/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src='figs/mouna.jpg' width='130px'/>
+<img src='figs/amir.jpg' width='130px'/>
 
 &nbsp;&nbsp;&nbsp;&nbsp;
 **<code><font color='#88398a'>Kaouthar Driss</font></code>**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-**<code><font color='#88398a'>Mouna Belaid</font></code>**
+**<code><font color='#88398a'>Amir Souissi</font></code>**
 
 **<code><font color='#88398a'>Data Science Engineer</font></code>**
 &nbsp;&nbsp;&nbsp;&nbsp;**<code><font color='#88398a'>Data Scientist</font></code>**
